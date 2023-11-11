@@ -1,0 +1,51 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(25, 25, 25);
+    margin: 0;
+    padding: 10px 100px;
+    padding-right: 20px;
+
+}
+
+#logo h1 {
+    color: rgb(255, 255, 255);
+}
+
+.header ul {
+    align-items: center;
+    display: flex;
+}
+
+.header li {
+    padding: 5px 10px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.header ul li a {
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+}
+
+.header ul li a.active {
+    background-color: rgb(247, 247, 247);
+    /* background-color:rgb(10, 31, 93); */
+    color: black;
+    /* color: aliceblue; */
+}
+
+.header ul li a:hover {
+    background-color: rgb(40, 91, 243);
+}
+

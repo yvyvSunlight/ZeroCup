@@ -1,0 +1,469 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: BlackSongREgualar;
+}
+body{
+    background-color: rgb(29, 24, 40);
+    overflow: hidden;
+}
+
+/* 字体w */
+@font-face {
+    font-family: BlackSongRegualar;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
+}
+
+@font-face {
+    font-family: BlackSongBold;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongBold.otf);
+}
+
+/* 动画们 */
+
+@keyframes fadein{
+    from{
+        opacity: 0;
+        stroke-dasharray: 3000;
+        stroke-dashoffset: 0;
+    }
+    to{
+        opacity: 1;
+        stroke-dasharray: 3000;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fadeout{
+    from{
+        opacity: 1;
+        stroke-dasharray: 3000;
+        stroke-dashoffset: 0;
+    }
+    to{
+        opacity: 0;
+        stroke-dasharray: 3000;
+        stroke-dashoffset: 0;
+    }
+}
+
+/* 导航栏(如有)（有力） */
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(25, 25, 25);
+    margin: 0;
+    padding: 10px 20px;
+    padding-left: 3%;
+
+}
+
+#logo {
+    padding-top: 10px;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.part {
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 30px;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo #blue {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: rgb(40, 91, 243);
+    animation: grow ease-in-out infinite 4s;
+}
+
+@keyframes grow {
+    12.5% {
+        height: 40px;
+    }
+
+    25% {
+        height: 30px;
+    }
+
+    100% {
+        height: 30px;
+    }
+}
+
+
+#logo #yellow {
+    background-color: rgb(171, 150, 44);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 1s;
+}
+
+#logo #green {
+    background-color: rgb(92, 136, 58);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 2s;
+}
+
+#logo #purple {
+    background-color: rgb(75, 54, 128);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 3s;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.header ul {
+    align-items: center;
+    display: flex;
+}
+
+.header li {
+    padding: 5px 10px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.header ul li a {
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+}
+
+.header ul li a.active {
+    background-color: rgb(247, 247, 247);
+    color: black;
+}
+
+.header ul li a:hover {
+    background-color: rgb(40, 91, 243);
+}
+
+.header ul li a:hover {
+    transform: translate(0, -8%);
+}
+
+
+/* 星空 */
+.staryNight{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+}
+#canvas{
+    filter: drop-shadow(0 0 1px white);
+}
+
+
+/* 启动 */
+
+.titlecontainer {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    /* height: 100%; */
+    width: 100%;
+    z-index: -10;
+}
+.startlecontainer {
+    /* position: fixed; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    /* height: 100%; */
+    width: 100%;
+    z-index: 100;
+  }
+#launch{
+    font-size: 11rem;
+    /* color:white; */
+    /* text-align: center; */
+    
+    /* font-family: "PingFang SC"; */
+    /* font-size: 84px; */
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-dasharray: 10 800;
+    stroke-dashoffset: 10;
+
+    
+    animation: 3s linear 0s drawing forwards;
+}
+#start{
+    display: none;
+    font-size: 3.3rem;
+    /* font-family: "PingFang SC"; */
+    fill: none;
+    stroke: white;
+    stroke-width: 1;
+    stroke-dasharray: 10 800;
+    stroke-dashoffset: 10;
+
+    
+    animation: 3s linear 0s drawing forwards;
+    /* z-index: 150; */
+}
+#qidong{
+    z-index: 1000;
+}
+
+/* 题目数量输入 */
+#question-sum-box{
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    bottom: 20%;
+    width: 70%;
+    /* display: flex;
+    justify-content: space-around; */
+    height: 40%;
+    font-size: 1.6rem;
+    color: white;
+    /* border-color: 10px solid white; */
+    /* background-color: white; */
+    /* z-index: 100; */
+}
+
+#ques-sum-intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-color: white; */
+    height: 20%;
+}
+
+#defined-mod-box{
+    display: flex;
+    justify-content: space-around;
+    height: 30%;
+}
+#easymod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 15%; */
+}
+#fullmod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 15%; */
+}
+
+#undefined-mod-box{
+    height: 30%;
+    left: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#self-define-mod{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+}
+#input-box{
+    float: left;
+}
+#dtyin{
+    /* height: 35px; */
+    /* float: left; */
+    width: 50%;
+    height: 20%;
+} 
+input{
+    margin: 10px;
+    color: rgb(29, 24, 40);
+    font-size: 30px;
+}
+
+/* 题目 */
+#QContainer{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Ques{
+    position:absolute;
+    width: 63%;
+    height: 30%;
+    top: 50px;
+    left: 10%;
+    /* border:10px solid white; */
+    /* background-color: white; */
+    display: none;
+    /* white-space: normal;
+    word-wrap: break-word; */
+}
+
+
+@media screen and (max-width:1200px) {
+    .Ques{
+        width: 73%;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .Ques{
+        width: 80%;
+    }
+    .next{
+        right: 20%;
+    }
+}
+@media screen and (max-width:840px) {
+    .Ques{
+        width: 86%;
+    }
+    .next{
+        right: 25%;
+    }
+}
+
+.qfcontainer {
+    display: flex;
+    justify-content: center;
+    height: 25%;
+    width: 100%;
+  }
+.timian{
+    font-size: 1.4rem;
+    font-family: "PingFang SC";
+    fill: none;
+    stroke: white;
+    stroke-width: 1;
+    stroke-dasharray: 10 80;
+    stroke-dashoffset: 10;
+  
+    animation: 40s linear 0s drawing forwards;
+}
+.optcontainer {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+  }
+.option{
+    font-size: 0.93rem;
+    /* font-family: "PingFang SC"; */
+    fill: none;
+    stroke: white;
+    stroke-width: 1;
+    stroke-dasharray: 10 80;
+    stroke-dashoffset: 10;
+  
+    animation: 40s linear 0s drawing forwards;
+}
+
+
+
+/* 选择 */
+.choice-container{
+    height: 20%;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: white; */
+    
+}
+.dtylist{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.A{
+    color:rgb(237,144,215);
+    font-size:50px;
+}
+.B{
+    color:rgb(95,251,255);
+    font-size:50px;
+}
+.choice{
+    height: 100%;
+    width: auto;
+    opacity: 0.8;
+}
+
+
+
+
+
+.next{
+    content: "";
+    display: block;
+    height:10%;
+    width: 7%;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2%;
+    right: 15%;
+    background-color: white;
+    /* text-align: center; */
+    font-size: 0.97rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultbox{
+    width: 60%;
+    /* height: 50%; */
+    color: white;
+    font-size: 4.5rem;
+    text-align: center;
+}
+.resultdepart{
+    width: 60%;
+    /* height: 50%; */
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+  
+  
+  /* 绘画动画 */
+  @keyframes drawing {
+    to {
+      stroke-dasharray: 3000;
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes dedrawing {
+    from {
+        stroke-dasharray: 3000;
+        stroke-dashoffset: 0;
+    }
+    to{
+        stroke-dasharray:  10 800;
+        stroke-dashoffset: 10;
+    }
+  }
