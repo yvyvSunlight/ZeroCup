@@ -1,0 +1,452 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: XX;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, black, rgb(184, 184, 202));
+    background: url(./img/pic_1631337782009L6Iboy3C5gH2OEGlJv5T5.png);
+}
+@font-face {
+    font-family: HY;
+    src: url(./font/HYZhuXinKaiW.ttf);
+}
+
+@font-face {
+    font-family: XX;
+    src: url(./font/Slidexiaxing-Regular.ttf);
+}
+@font-face {
+    font-family: BlackSongRegualar;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
+}
+li a{
+    font-family: BlackSongRegualar;
+}
+
+.a{
+    width: 100%;
+    height: 100%;
+}
+
+.h1{
+    color: aliceblue;
+    text-align: center;
+    font-family: XX;
+}    
+.di_title{
+    color: aliceblue;
+    margin: 5px;
+    font-family: XX;
+}
+
+.h3{
+    text-align: center;
+    margin: 20px auto;
+    color: aliceblue;
+    font-size: 18px;
+    width: 70vw;
+    font-family: HY;
+}
+.h1,.h3{
+    margin: 10px auto;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+#TRIAN_1{
+    clip-path: polygon(100% 0,100% 100%, 0 100%,100% 0);
+    text-align: right;
+    vertical-align: text-bottom;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background: url(./img/personality1.png);
+}
+#TRIAN_2{
+    clip-path: polygon(0 0,0 100%, 100% 100%,0 0);
+    text-align: left;
+    vertical-align: text-bottom;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background: url(./img/personality2.png);
+}
+#TRIAN_3{
+    clip-path: polygon(0 0,100% 0, 100% 100%,0 0);
+    text-align: right;
+    vertical-align: text-top;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background: url(./img/personality3.0.png);
+}
+#TRIAN_4{
+    clip-path: polygon(0 0,100% 0, 0 100%,0 0);
+    text-align: left;
+    vertical-align: text-top;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: url(./img/personality4.png);
+}
+.container .tri{
+    opacity: 0.4;
+    width: 22vw;
+    height: 11.5vw;
+    border-radius: 5%;
+    margin: 5px;
+    padding: 4px;
+    display: flex;
+    transition:clip-path 1s;
+}
+.container .tri:hover {
+    opacity: 1;
+    /* clip-path: none; */
+}
+#TRIAN_1:hover{
+    clip-path: none;
+}
+#TRIAN_2:hover{
+    clip-path: none;
+}
+#TRIAN_3:hover{
+    clip-path: none;
+}
+#TRIAN_4:hover{
+    clip-path: none;
+}
+
+
+
+@keyframes transform {
+    0%{transform: rotateZ(240deg) translate(0,1000px);}
+    100%{transform: rotateZ(240deg) translate(0,-20px);}
+}
+
+.c{
+    position: absolute;
+    top: 0px;
+    right: -240px;
+}
+.d,.e,.d1,.e1,.d2,.e2,.d3,.e3{
+    position: absolute;
+    right: calc(var(--i)*100px);
+    width: calc(var(--w)*40px);
+    height: 900px;
+    overflow: hidden;
+    border-radius: 100px;
+    transform: rotateZ(240deg) translate(900px,0);
+    /* background: rgb(240,220,150); */
+    background: url("./img/屏幕截图\ 2023-10-31\ 185105.png");
+    opacity: 0.6;
+}
+.e,.d{
+    background: url(./img/屏幕截图\ 2023-11-10\ 001503.png);
+    color: #fff;
+}
+/* .d:nth-child(2){
+    background: rgb(115, 89, 105);
+} */
+.e,.e1,.e2,.e3{
+    left: -470px;
+    top: -140px;
+    width: 70px;
+}
+a div div{
+    transform: rotateZ(90deg);
+    display: flex;
+    margin: 10px;
+    padding: 5px;
+    white-space: nowrap;
+    margin-top: 30px;
+}
+a div div h3{
+    font-family: HY;
+}
+a div:hover{
+    opacity: 1;
+}
+
+
+.d1,.e1{
+    background: url(./img/屏幕截图\ 2023-11-10\ 005735.png);
+    color:rgb(93, 60, 20) ;
+}
+.d2,.e2{
+    background: url(./img/屏幕截图\ 2023-11-10\ 010355.png);
+    color: blue;
+}
+
+.d3,.e3{
+    background: url(./img/adventurer-bg.png);
+    color: black;
+}
+
+
+
+.header {
+    position:relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(25, 25, 25);
+    margin: 0;
+    padding: 10px 20px;
+    padding-left: 3%;
+}
+
+#logo {
+    padding-top: 10px;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.part {
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 30px;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo #blue {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: rgb(40, 91, 243);
+    animation: grow ease-in-out infinite 4s;
+}
+
+@keyframes grow {
+    12.5% {
+        height: 40px;
+    }
+
+    25% {
+        height: 30px;
+    }
+
+    100% {
+        height: 30px;
+    }
+}
+
+
+#logo #yellow {
+    background-color: rgb(171, 150, 44);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 1s;
+}
+
+#logo #green {
+    background-color: rgb(92, 136, 58);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 2s;
+}
+
+#logo #purple {
+    background-color: rgb(75, 54, 128);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 3s;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.header ul {
+    align-items: center;
+    display: flex;
+}
+
+.header li {
+    padding: 5px 10px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.header ul li a {
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+}
+
+.header ul li a.active {
+    background-color: rgb(247, 247, 247);
+    color: black;
+}
+
+.header ul li a:hover {
+    background-color: rgb(40, 91, 243);
+}
+
+.header ul li a:hover {
+    transform: translate(0, -8%);
+}
+
+
+
+
+
+
+.back{
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 18px;
+    line-height: 30px;
+    background-image: linear-gradient(to right,#03a9f4,#f441a5,#ffeb3b,#09a8f4);
+    border-radius: 15px;
+    background-size: 400%;
+}
+.back:hover{
+    animation: sun 8s infinite;
+}
+.back::before{
+    content: '';
+    position: absolute;
+    top: -1.5px;
+    bottom: -1.5px;
+    left: -1.5px;
+    right: -1.5px;
+    border-radius: 15px;
+    background-image: linear-gradient(to right,#03a9f4,#f441a5,#ffeb3b,#09a8f4);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(20px);
+
+}
+.dimension{
+    color: aliceblue;
+    margin: 10px auto;
+    width: 500px;
+    font-size: large;
+}
+@keyframes sun {
+    100%{
+        background-position: -400% 0;
+    }
+    
+}
+.char{
+    font-family: XX;
+    font-size: 15vw;
+    position: absolute;
+}
+#char1{
+    left :4vw;
+    top: 15vh;
+    color: blue;
+}
+#char2{
+    left :15vw;
+    top: 32vh;
+    color: blue;
+}
+#char3{
+    left :4vw;
+    bottom: 20vh;
+    color: orange;
+}
+#char4{
+    left :15vw;
+    bottom: 4vh;
+    color: orange;
+}
+#char5{
+    right :4vw;
+    top: 15vh;
+    color: purple;
+}
+#char6{
+    right :15vw;
+    top: 32vh;
+    color: purple;
+} 
+#char7{
+    right :4vw;
+    bottom: 20vh;
+    color: green;
+}
+#char8{
+    right :15vw;
+    bottom: 4vh;
+    color: green;
+}
+.char span{
+    position: absolute;
+    font-size: 2.5vw;
+    color: aliceblue;
+    bottom: 3vh;
+    right: 1vw;
+    display: none;
+}
+.char:hover span{
+    display: inline;
+}
+.prompt{
+    position: absolute;
+    bottom: 10vh;
+    font-size: 2.5vw;
+    left: 50vw;
+    translate: -50%;
+    display: none;
+}
+#prompt1{
+    color: rgb(240,200,255);
+}
+#prompt2{
+    color: rgb(220,255,220);
+}
+#prompt3{
+    color: rgb(220, 220, 255);
+}
+#prompt4{
+    color: rgb(255, 255, 200);
+}
+
+#TRIAN_1:hover #prompt1{
+    display: inline;
+}
+#TRIAN_2:hover #prompt2{
+    display: inline;
+}
+#TRIAN_3:hover #prompt3{
+    display: inline;
+}
+#TRIAN_4:hover #prompt4{
+    display: inline;
+}
+
+/* @media (max-width:1440px) {
+    .e,.d,.e1,.d1,.e2,.d2,.e3,.d3{
+       height: 800px;
+   }  
+}
+@media (max-width:1440px) {
+    .e,.d,.e1,.d1,.e2,.d2,.e3,.d3{
+       height: 500px;
+       translate: -100px;
+   }  
+} */

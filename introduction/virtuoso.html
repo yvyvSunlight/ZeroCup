@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./single.css">
+    <link rel="stylesheet" href="./header.css">
+    <link rel="icon" href="../main/Vector.svg"/>
+    <title>人格类型介绍 | 鉴赏家</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(to bottom right, black, rgb(86, 86, 39));
+            display: grid;
+            grid-template-columns: 1fr 1fr;        
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            width: 440px;
+            height: 250px;
+            position: relative;
+        }
+        .rolebg{
+            background-color: grey;
+            background: url(./img/virtuoso-bg.png);
+            width: 440px;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 30px 20px rgba(255, 255, 255, 0.05);
+            transform-origin: bottom;
+            transition: 2s;
+        }
+        .role img{
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            }
+        
+        .role{
+            width: 440px;
+            height: 230px;
+            position: absolute;
+            bottom: 0px;
+            transform-origin: bottom;
+            transition: 2s;
+        }
+        .content{
+            width: 440px;
+            padding: 10px;
+            color: #fff;
+            position: absolute;
+            bottom: -50px;
+            opacity: 0;
+            transition: 2s;
+        }
+        .content h1{
+            font-weight: 200;
+        }
+        .content p{
+            font-weight: 200;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+        .card:hover .rolebg{
+            transform: perspective(1000px) rotateX(30deg) skewX(-20deg);
+        }
+        .card:hover .role{
+            transform: scale(1.3);
+        }
+        .card:hover .content{
+            opacity: 1;
+            transform: translateY(120px);
+        }
+        .DISCRIBE{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+
+        }
+        .discription{
+            margin: 3px;
+        }
+        .title2{
+            margin: 3px;
+        }
+        .title{
+            color:rgb(0 ,255 ,255 / 25%); 
+            font: 400 3vw/1 sans-serif;
+        }
+        .title span{
+            animation: ani 4s linear calc(var(--i)*300ms) infinite alternate ;
+        }
+        @keyframes ani{
+            to{
+                color:yellow;
+                text-shadow: 
+                0 0 12px #000,
+                0 0 16px yellow,
+                0 0 40px yellow,
+                0 0 160px yellow
+                ;
+            }
+        }
+        #random{
+            height: 25px;
+        }
+        #ajust{
+            height: 25px;
+        }
+        .dimension{
+            margin: 10px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div id="logo">
+            <div id="blue" class="part">M</div>
+            <div id="yellow" class="part">B</div>
+            <div id="green" class="part">T</div>
+            <div id="purple" class="part">I</div>
+        </div>
+        <ul>
+            <li><a href="../main/main.html"><object data="../picture/main0.svg"></object>首页</a></li>
+            <li><a href="../introduction/INTRODUCTION.html" class="active"><object data="../picture/introduction1.svg"></object>介绍</a></li>
+            <li><a href="../test/test.html"><object data="./测试申请.svg"></object>测试</a></li>
+            <li><a href="../about/about.html"><object data="./生活休闲.svg"></object>关于生活</a></li>
+        </ul>
+    </header>
+    <div class="wrap">
+        <div class="card">
+            <div class="rolebg">
+            </div>
+            <div class="role">
+                <img src="./img/istp-virtuoso.svg" >
+            </div>
+            <div class="content">
+                <h1>鉴赏家</h1>
+                <h2>ISTP-A / ISTP-T</h2>
+                <p>鉴赏家 （ISTP） 是具有内向、观察、思考和知觉性格特征的人。他们往往具有个人主义的心态，在不需要太多外部联系的情况下追求目标。他们以好奇心和个人技能参与生活，根据需要改变他们的方法。</p>
+            </div>
+        </div>
+    </div>
+    <div class="DISCRIBE">
+        <div>
+
+            <h1 class="title">
+                <span style="--i:0">V</span>
+                <span style="--i:1">I</span>
+                <span style="--i:2">R</span>
+                <span style="--i:3">T</span>
+                <span style="--i:4">U</span>
+                <span style="--i:5">O</span>
+                <span style="--i:6">S</span>
+                <span style="--i:7">O</span>
+            </h1>
+            <div class="dimension"><i>I内向 S感觉 T思维 P知觉</i></div>
+            <h2 class="title2">
+                介绍
+            </h2>
+            <div class="discription">
+                鉴赏家们喜欢用手和眼睛探索，用冷静的理性主义和强烈的好奇心去触摸和审视周围的世界。具有这种性格类型的人是天生的创造者，为了乐趣而构建有用和多余的东西，并在他们前进的过程中从他们的环境中学习。鉴赏家通常是机械师和工程师，他们发现最大的乐趣莫过于亲自动手将东西拆开并重新组合在一起。
+
+            </div>
+            <div>
+                <h2 class="title2">
+                    特质
+                </h2>
+                <div class="discription">
+                    鉴赏家喜欢伸出援手并分享他们的经验，尤其是与他们关心的人分享。
+                </div>
+                <div class="discription">
+                    然而，与其说是某种愿景的追求，不如说鉴赏家们只是在探索新兴趣的可行性，当他们做出这些翻天覆地的变化时。
+                </div>
+                <div class="discription">
+                    Virtuosos实际上非常神秘。友好但非常私密，冷静但突然自发，极度好奇但无法专注于正式学习。
+                </div>
+                <h3 class="title2">优势</h3>
+                <div class="discription">乐观而精力充沛、兼具创意和实用 、可以毫不费力地转换思维方式以适应新情况、在危机中表现出色</div>
+                <h3 class="title2">劣势</h3>
+                <div class="discription">个性很难了解、固执、在长期关注事物时不那么可靠、冒险行为</div>
+            </div>
+            <div id="ajust"></div>
+            <div id="random">
+                <span
+                    class="txt-rotate"
+                    data-period="2000"
+                    data-rotate='[
+                    "我想过一种生活，一种不同的生活！我不想每天去同一个地方，见到同样的人，做同样的工作。我想要有趣的挑战！" 
+                    , "我在一天中发生变化。我醒来，我是一个人，当我入睡时，我知道我肯定是另一个人。" 
+                    , "生活要么是一次大胆的冒险，要么什么都没有。" 
+                    , "毫不犹豫地活在每一秒。" 
+                    , "人是一根有思想的苇草！"
+                    , "重要的是不要停止质疑，好奇心有它自己的存在理由。"
+                    , "你的时间是有限的，所以不要浪费它过别人的生活。"
+                    , "追随不安全的独立思考者的道路，将你的想法暴露在争议的危险中。" 
+                    , "把人们当成他们应该成为的样子，帮助他们成为他们有能力成为的样子。" 
+                    , "所有金子都不会闪闪发光;并非所有流浪的人都是迷途的;强壮的老不枯萎;霜冻无法到达深根。" 
+                    , "当整个世界都寂静无声时，即使是一个声音也会变得强大。" 
+                    , "我对你以什么为生不感兴趣，我想知道你渴望什么——如果你敢于梦想满足你内心的渴望。" 
+                    , "如果不使用我被赋予的任何能力，我会更加害怕、我会更害怕拖延和懒惰。" 
+                    , "爱只有在分享中才能成长：只有把它送给别人，你才能为自己拥有更多。" 
+                    , "良好的秩序是万物的基础。" 
+                    , "互相鼓励、提升和加强！因为传播到一个人身上的正能量，我们所有人都会感受到。" 
+                    ]'></span>
+            </div>   
+        </div>    
+    </div>
+    <a href="./INTRODUCTION.html" class="back">
+        BACK
+    </a>
+    
+    <script src="single.js"></script>
+</body>
+</html>

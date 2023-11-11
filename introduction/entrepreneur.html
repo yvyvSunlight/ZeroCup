@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./header.css">
+    <link rel="stylesheet" href="./single.css">
+    <link rel="icon" href="../main/Vector.svg"/>
+    <title>人格类型介绍 | 企业家</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(to bottom right, black, rgb(86, 86, 39));
+            display: grid;
+            grid-template-columns: 1fr 1fr;        
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            width: 440px;
+            height: 250px;
+            position: relative;
+        }
+        .rolebg{
+            background-color: grey;
+            background: url(./img/entrepreneur-bg.png);
+            width: 440px;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 30px 20px rgba(255, 255, 255, 0.05);
+            transform-origin: bottom;
+            transition: 2s;
+        }
+        .role img{
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            }
+        
+        .role{
+            width: 440px;
+            height: 230px;
+            position: absolute;
+            bottom: 0px;
+            transform-origin: bottom;
+            transition: 2s;
+        }
+        .content{
+            width: 440px;
+            padding: 10px;
+            color: #fff;
+            position: absolute;
+            bottom: -50px;
+            opacity: 0;
+            transition: 2s;
+        }
+        .content h1{
+            font-weight: 200;
+        }
+        .content p{
+            font-weight: 200;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+        .card:hover .rolebg{
+            transform: perspective(1000px) rotateX(30deg) skewX(-20deg);
+        }
+        .card:hover .role{
+            transform: scale(1.3);
+        }
+        .card:hover .content{
+            opacity: 1;
+            transform: translateY(120px);
+        }
+        .DISCRIBE{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+
+        }
+        .discription{
+            margin: 3px;
+        }
+        .title2{
+            margin: 3px;
+        }
+        .title{
+            color:rgb(0 ,255 ,255 / 25%); 
+            font: 400 3vw/1 sans-serif;
+        }
+        .title span{
+            animation: ani 4s linear calc(var(--i)*300ms) infinite alternate ;
+        }
+        @keyframes ani{
+            to{
+                color:orange;
+                text-shadow: 
+                0 0 12px #000,
+                0 0 16px orange,
+                0 0 40px orange,
+                0 0 160px orange
+                ;
+            }
+        }
+        #random{
+            height: 25px;
+        }
+        #ajust{
+            height: 25px;
+        }
+        .dimension{
+            margin: 10px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div id="logo">
+            <div id="blue" class="part">M</div>
+            <div id="yellow" class="part">B</div>
+            <div id="green" class="part">T</div>
+            <div id="purple" class="part">I</div>
+        </div>
+        <ul>
+            <li><a href="../main/main.html"><object data="../picture/main0.svg"></object>首页</a></li>
+            <li><a href="../introduction/INTRODUCTION.html" class="active"><object data="../picture/introduction1.svg"></object>介绍</a></li>
+            <li><a href="../test/test.html"><object data="./测试申请.svg"></object>测试</a></li>
+            <li><a href="../about/about.html"><object data="./生活休闲.svg"></object>关于生活</a></li>
+        </ul>
+    </header>
+    <div class="wrap">
+        <div class="card">
+            <div class="rolebg">
+            </div>
+            <div class="role">
+                <img src="./img/estp-entrepreneur.svg" >
+            </div>
+            <div class="content">
+                <h1>企业家</h1>
+                <h2>ESTP</h2>
+                <p>企业家 （ESTP） 是具有外向、观察、思考和勘探人格特质的人。他们往往精力充沛，以行动为导向，巧妙地驾驭他们面前的任何东西。他们喜欢发现生活中的机会，无论是与他人交往还是更个人的追求。</p>
+            </div>
+        </div>
+    </div>
+    <div class="DISCRIBE">
+        <div>
+
+            <h1 class="title">
+                <span style="--i:0">E</span>
+                <span style="--i:1">N</span>
+                <span style="--i:2">T</span>
+                <span style="--i:3">R</span>
+                <span style="--i:4">E</span>
+                <span style="--i:5">P</span>
+                <span style="--i:6">R</span>
+                <span style="--i:7">E</span>
+                <span style="--i:8">N</span>
+                <span style="--i:9">E</span>
+                <span style="--i:10">U</span>
+                <span style="--i:11">R</span>
+            </h1>
+            <div class="dimension"><i>E外向 S感觉 T思维 P知觉</i></div>
+            <h2 class="title2">
+                简介
+            </h2>
+            <div class="discription">
+                企业家总是对他们周围的环境产生影响——在聚会上发现他们的最好方法是寻找人们在他们从一个群体移动到另一个群体时在他们周围飞来飞去的旋转漩涡。以直率和朴实的幽默欢笑和娱乐，企业家人物喜欢成为关注的焦点。如果观众被要求上台，企业家会自愿参加，或者自愿邀请害羞的朋友。
+
+            </div>
+            <div>
+                <h2 class="title2">
+                    特质
+                </h2>
+                <div class="discription">
+                    企业家是最有可能采取冒险行为的生活方式的人格类型。他们活在当下，潜心行动——他们是风暴之眼。
+                </div>
+                <div class="discription">
+                    企业家也许是任何类型中最敏锐、最未经过滤的视角，在注意到微小变化方面具有独特的技能
+                </div>
+                <div class="discription">
+                    有时，企业家的即时观察和行动正是所需要的，就像在一些企业环境中一样，尤其是在紧急情况下。
+                </div>
+                <h3 class="title2">优势</h3>
+                <div class="discription">大胆、理性和务实、善于创新、敏锐、善于交际</div>
+                <h3 class="title2">劣势</h3>
+                <div class="discription">不善于表达自己的感受、容易冒险、缺乏耐心、可能错过更远大的图景</div>
+            </div>
+            <div id="ajust"></div>
+            <div id="random">
+                <span
+                    class="txt-rotate"
+                    data-period="2000"
+                    data-rotate='[
+                    "生活要么是一次大胆的冒险，要么什么都没有。" 
+                    , "毫不犹豫地活在每一秒。" 
+                    , "人是一根有思想的苇草！"
+                    , "重要的是不要停止质疑，好奇心有它自己的存在理由。"
+                    , "你的时间是有限的，所以不要浪费它过别人的生活。"
+                    , "追随不安全的独立思考者的道路，将你的想法暴露在争议的危险中。" 
+                    , "把人们当成他们应该成为的样子，帮助他们成为他们有能力成为的样子。" 
+                    , "所有金子都不会闪闪发光;并非所有流浪的人都是迷途的;强壮的老不枯萎;霜冻无法到达深根。" 
+                    , "当整个世界都寂静无声时，即使是一个声音也会变得强大。" 
+                    , "我对你以什么为生不感兴趣，我想知道你渴望什么——如果你敢于梦想满足你内心的渴望。" 
+                    , "如果不使用我被赋予的任何能力，我会更加害怕、我会更害怕拖延和懒惰。" 
+                    , "爱只有在分享中才能成长：只有把它送给别人，你才能为自己拥有更多。" 
+                    , "良好的秩序是万物的基础。" 
+                    , "互相鼓励、提升和加强！因为传播到一个人身上的正能量，我们所有人都会感受到。" 
+                    , "我想过一种生活，一种不同的生活！我不想每天去同一个地方，见到同样的人，做同样的工作。我想要有趣的挑战！" 
+                    , "我在一天中发生变化。我醒来，我是一个人，当我入睡时，我知道我肯定是另一个人。" 
+                    ]'></span>
+            </div>
+            
+        </div>    
+    </div>
+    <a href="./INTRODUCTION.html" class="back">
+        BACK
+    </a>
+    
+    <script src="single.js"></script>
+</body>
+</html>
