@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../main/Vector.svg"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: BlackSongREgualar;
+        }
+        body{
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        canvas {
+            background-size: cover;
+            position: absolute;
+            background-image: url("./bgbg.png");
+        }
+        #main{
+            position: absolute;
+            width: 70%;
+            height: 100vh;
+            border-radius: 1%;
+
+            box-sizing: border-box;
+        }
+        #tittle{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        h1{
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+        }
+        #tittle h5{
+            color: rgb(241, 241, 241);
+            display: flex;
+            justify-content: center;
+        }
+        #text p {
+            color: #ffffff;
+            width: 90%;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-size: 1.1em;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        button {
+            position: relative;
+            font-size: 32px;
+            font-weight: 400;
+            background-color: #ffffff;
+            padding: 12px 20px;
+            border: none;
+            color: #000000;
+            border-radius: 10px;
+            width: 150px;
+            margin: 0 40%;
+        }
+        a{
+            text-decoration: none;
+            color: purple;
+        }
+        @font-face {
+    font-family: BlackSongRegualar;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
+}
+
+@font-face {
+    font-family: BlackSongBold;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongBold.otf);
+}
+
+    </style>
+    <title>ENTP做过哪些特别的事？</title>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <div id="main">
+        <div id="tittle">
+            <h1>ENTP做过哪些特别的事？</h1>
+            <h5>声明——转自知乎，仅用于展示网页效果</h5>
+        </div>
+        <div id="text">
+            <p>
+                a.我特别热衷于信任自己的第六感，对于时间的第六感，再准确一点是对于下课时间的第六感！因此我在一个早上有四节课的小学上学时，每当第三节下课铃声一响，我就会以最快的速度收拾书包，撂上肩膀，冲出教室，突破校门，直奔家中。（自带背景bgm：我的规律就是规律！）在这个过程中，我享受着身边同学（嫉妒）迷惑的目光，而我觉得很骄傲，因为我在想他们收拾书包的速度都根本比不上我。。。而我妈那时候是我的班主任。。。那会经常因为这个第六感，没少挨打！
+            </p>
+            <p>
+                b.我的特殊不是因为我本人特殊，是因为我的品味特别而特殊，以及我喜欢的爱豆品味高级而特殊。。。
+            </p>
+            <p>
+                本entp出生在一个小山村，那里流行的东西云里雾里，在最流行非主流的那段时光，大家喜欢本兮喜欢徐良后弦by2等等，本人一个杀出重围，异常喜欢fx，听Lady Gaga，看断背山。。。在那个小山村，所有人都在装非主流深沉无比，本entp在家一个人刷微博，看站姐飞韩国追星。
+            </p>
+            <p>再后来到城市上高中，在最火创造营101的时期，本韩团老粉站在制高点的位置，觉得自己非常special，用轻蔑的语气说：还不是偷韩国的？！</p>
+            <p>说句尬的，我是郑秀晶的粉丝，然后经过多年的观察，郑秀晶的粉丝蛮多装逼怪（如果你不是！别杠我！我是我是！！我认识的一些人也是！！），早年大冰读物爱好者，古早文艺青年韩圈人。。。她们不会像其他爱豆粉丝撕天撕地，她们对哪家的粉丝都挺礼貌，挺尊重的样子，但内心那股子冰山美人title会让粉丝自我觉得高人一等。。。</p>
+            
+        </div>
+        <button id="button">
+            <a href="javascript:window.opener=null;window.open('','_self');window.close();">BACK</a>
+        </button>
+    </div>
+</body>
+<script>
+    const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d");
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+ 
+  canvas.width = width;
+  canvas.height = height;
+ 
+  const particles = [];
+  const connections = [];
+  const Count = 20;  
+  const Speed = 0.25;     
+  const Size = 20;      
+  const max = 300;     
+  const Color = "#fff"; 
+ 
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.color = "#fff";
+      this.angle = Math.random() * 360;
+      this.speed = Math.random() * (Speed+0.25)/2;
+      this.opacity = Math.random() * 0.5 ;
+    }
+ 
+    update() {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+ 
+      // 如果粒子超出画布范围，则重新随机设置位置
+      if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+      }
+    }
+ 
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, Size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+      ctx.fill();
+    }
+  }
+ 
+  // 创建粒子数组
+  function createParticles() {
+    for (let i = 0; i < Count; i++) {
+      particles.push(new Particle());
+    }
+  }
+ 
+  // 绘制粒子之间的连线
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+ 
+        if (distance < max) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = Color;
+          ctx.lineWidth = 0.2 * (1 - distance / max);
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
+    }
+  }
+ 
+  // 动画循环
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+ 
+    for (const particle of particles) {
+      particle.update();
+      particle.draw();
+    }
+ 
+    drawConnections();
+ 
+    requestAnimationFrame(animate);
+  }
+ 
+  // 初始化粒子数组并启动动画
+  createParticles();
+  animate();
+</script>
+</html>

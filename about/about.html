@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins",sans-serif;
+            font-family: BlackSongREgualar;
+        }
+        p {
+            font-size: medium;
+        }
+        body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        canvas {
+            background-size: cover;
+            position: absolute;
+            background-image: url("./bgbg.png");
+            height: 100%;
+            width: 100%;
+        }
+
+        #main {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            opacity: 0;
+        }
+        .word span {
+            color: rgb(71, 12, 197);
+            opacity: 0;
+            font-size: 5vw;
+            line-height: 5.5vw;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-right: 3px;
+        }
+        .first {
+            padding: 25vh 0px 0px 20vw;
+            position: absolute;
+            
+        }
+        .second {
+            padding: 45vh 0px 0px 40vw;
+            position: absolute;
+        }
+        .word .active {
+            animation: smoke 2s linear forwards;
+            transform-origin: bottom;
+        }
+        .header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(25, 25, 25);
+    margin: 0;
+    padding: 10px 20px;
+    padding-left: 3%;
+
+}
+
+#logo{
+    padding-top: 10px;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.part{
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 30px;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logo #blue{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: rgb(40, 91, 243);
+    animation: grow ease-in-out infinite 4s;
+}
+@keyframes grow {
+    12.5%{
+        height: 40px;
+    }
+    25%{
+        height: 30px;
+    }
+    100%{
+        height: 30px;
+    }
+}
+
+
+#logo #yellow{
+    background-color: rgb(171, 150, 44);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 1s;
+}
+#logo #green{
+    background-color: rgb(92, 136, 58);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 2s;
+}
+#logo #purple{
+    background-color: rgb(75, 54, 128);
+    animation: grow ease-in-out infinite 4s;
+    animation-delay: 3s;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.header ul {
+    align-items: center;
+    display: flex;
+}
+
+.header li {
+    padding: 5px 10px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.header ul li a {
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+}
+.header ul li .active{
+    background-color: #fff;
+    color: #000;
+}
+
+
+.header ul li a:hover {
+    background-color: rgb(40, 91, 243);
+}
+
+.header ul li a:hover{
+    transform: translate(0,-8%);
+}
+
+        #search {
+            border-radius: 20px;
+            position: relative;
+            height: 76px;
+            width: 60%;
+            background-color: #fff;
+            box-shadow:0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        #search img {
+            position: absolute;
+            margin-left: 5px
+            ;
+            height: 50px;
+            top: 10px;
+        }
+        #search input {
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+            outline: none;
+            padding: 0 0 0 65px;
+            font-size: 18px;
+            font-weight: 400;
+            border: none;
+        }
+        #search button {
+            position: absolute;
+            right: 50px;
+            top: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background-color: #000000;
+            padding: 12px 20px;
+            border: none;
+            color: #ffffff;
+            border-radius: 8px;
+        }
+        #container {
+            margin: 0 100px;
+        }
+        .peo_box{
+	        height: 100px;
+	        width: 100%;
+	        padding: 30px 0;
+	        position: relative;
+	        top: 30px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .picture{
+	        border-radius: 50%;
+	        height: 100%;
+          	width: 10%;
+	        display: inline-block;
+        } 
+        .content{
+	        height: 15%;
+        	width: 80%;
+         	display: inline-block;
+	        vertical-align: top;
+        	text-align: left;
+	        padding-left: 2%;
+        }      
+        .but{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 50px;
+        }
+        .buttonpn {
+            position: relative;
+            font-size: 20px;
+            font-weight: 400;
+            background-color: #ffffff;
+            padding: 10px 0px;
+            border: none;
+            color: #000000;
+            width: 70px;
+            color: rgb(174, 141, 205);
+            background-color: transparent;
+            margin: -1px;
+        }
+        .disabled{
+            pointer-events: none;
+            color: #6c757d;
+        }
+        @keyframes smoke{
+    0%{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    }
+    100%{
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(300px) translateY(-300px) rotate(720deg) scale(1);
+    }
+
+}
+#li {
+    display: none;
+}
+#roll {
+        position:absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgb(25,25,25);
+        border-end-start-radius: 15px;
+        border-end-end-radius: 15px;
+        margin: 0;
+        padding: 0;
+        transform-origin: top;
+        transition: all .3s ease-in-out;
+        transform: scaleY(0);
+        display: block;
+       }
+       .it {
+        font-size: 32px;
+        font-family: 'zcoolqingkehuangyouti-Regular, zcoolqingkehuangyouti';
+        font-weight: 400;
+        color: #ffffff;
+        border-bottom: #000000 1px solid;
+        margin: 10px;
+        margin-left: 50px;
+        display: block;
+       }
+       .it a {
+        text-decoration: none;
+        color: #ffffff;
+       }
+@media (max-width: 1440px) and (min-width: 700px){
+    .header li{
+        display: none;
+    }
+    #li  {
+        display: block;
+        align-content: flex-end;
+    }
+    #li img {
+        width: 76px;
+        height: 76px;
+    }
+    .header {
+        position: relative;
+        z-index: 10;
+    }
+}
+@font-face {
+    font-family: BlackSongRegualar;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
+}
+
+@font-face {
+    font-family: BlackSongBold;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongBold.otf);
+}
+
+    </style>
+        <link rel="icon" href="../main/Vector.svg"/>
+    <title>关于生活</title>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <div id="main">
+        <div class="word first"></div>
+        <div class="word second"></div>
+    </div>
+    <header class="header">
+        <div id="logo">
+            <div id="blue" class="part">M</div>
+            <div id="yellow" class="part">B</div>
+            <div id="green" class="part">T</div>
+            <div id="purple" class="part">I</div>
+        </div>
+        <div id="search">
+            <img src="./search.png">
+            <input id="input" type="text" placeholder="INTP">
+            <button id="button">
+                搜索
+            </button>
+        </div>
+        <div id = "li"><img src="./菜单.png" alt="菜单"></div>
+        <ul id="roll">
+            <div class="it"><a href="../main/main.html" class="active"><object data="./主页选中.svg"></object>首页</a></div>
+            <div class="it"><a href="../introduction/INTRODUCTION.html"><object data="./详情介绍.svg"></object>介绍</a></div>
+            <div class="it"><a href="../test/test.html"><object data="./测试申请.svg"></object>测试</a></div>
+            <div class="it"><a href="../about/about.html"><object data="./生活休闲.svg"></object>关于生活</a></div>
+        </ul>
+        <ul>
+            <li><a href="../main/main.html"><object data="./主页选中.svg"></object>首页</a></li>
+            <li><a href="../introduction/INTRODUCTION.html"><object data="./详情介绍.svg"></object>介绍</a></li>
+            <li><a href="../test/test.html"><object data="./测试申请.svg"></object>测试</a></li>
+            <li><a href="../about/about.html" class="active"><svg t="1699707206617" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23785" width="32" height="32"><path d="M475.4944 842.24h-37.5296c-196.864 0-356.9664-160.1536-356.9664-356.9664V311.4496c0-37.632 30.6176-68.2496 68.2496-68.2496h614.9632c37.632 0 68.2496 30.6176 68.2496 68.2496v173.7728c0 196.864-160.1536 357.0176-356.9664 357.0176z m-322.8672-527.36v170.3936c0 157.3376 128 285.2864 285.2864 285.2864h37.5296c157.3376 0 285.2864-128 285.2864-285.2864V314.88H152.6272z" fill="#2c2c2c" p-id="23786"></path><path d="M830.0032 591.3088h-38.656c-19.8144 0-35.84-16.0256-35.84-35.84s16.0256-35.84 35.84-35.84h38.656c30.0544 0 54.528-23.6544 54.528-52.736s-24.4736-52.736-54.528-52.736h-31.7952c-19.8144 0-35.84-16.0256-35.84-35.84s16.0256-35.84 35.84-35.84h31.7952c69.5808 0 126.208 55.808 126.208 124.416s-56.6272 124.416-126.208 124.416z" fill="#2c2c2c" p-id="23787"></path><path d="M324.4544 218.3168c-19.8144 0-35.84-16.0256-35.84-35.84V102.1952c0-19.8144 16.0256-35.84 35.84-35.84s35.84 16.0256 35.84 35.84v80.2816c0 19.8144-16.0768 35.84-35.84 35.84zM455.6288 218.3168c-19.8144 0-35.84-16.0256-35.84-35.84V102.1952c0-19.8144 16.0256-35.84 35.84-35.84s35.84 16.0256 35.84 35.84v80.2816c0 19.8144-16.0768 35.84-35.84 35.84zM587.1616 218.3168c-19.8144 0-35.84-16.0256-35.84-35.84V102.1952c0-19.8144 16.0256-35.84 35.84-35.84s35.84 16.0256 35.84 35.84v80.2816c0 19.8144-16.0768 35.84-35.84 35.84z" fill="#2c2c2c" p-id="23788"></path><path d="M774.5536 941.6192H160.512c-19.8144 0-35.84-16.0256-35.84-35.84s16.0256-35.84 35.84-35.84h614.0416c19.8144 0 35.84 16.0256 35.84 35.84s-16.0256 35.84-35.84 35.84z" fill="#2c2c2c" p-id="23789"></path></svg></object>关于生活</a></li>
+        </ul>
+    </header>
+    
+    <div id = container>
+        <div class="list-group">
+        </div>
+    </div>
+    <div class="but">
+        <button class="buttonpn" id="pre">
+            上一页
+        </button>
+        <button class="buttonpn" id="next">
+            下一页
+        </button>
+    </div>
+</body>
+<script>
+    const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d");
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+ 
+  canvas.width = width;
+  canvas.height = height;
+ 
+  const particles = [];
+  const connections = [];
+  const Count = 20;  
+  const Speed = 0.25;     
+  const Size = 20;      
+  const max = 300;     
+  const Color = "#fff"; 
+ 
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.color = "#fff";
+      this.angle = Math.random() * 360;
+      this.speed = Math.random() * (Speed+0.25)/4;
+      this.opacity = Math.random() * 0.5 ;
+    }
+ 
+    update() {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+ 
+      // 如果粒子超出画布范围，则重新随机设置位置
+      if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+      }
+    }
+ 
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, Size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+      ctx.fill();
+    }
+  }
+ 
+  // 创建粒子数组
+  function createParticles() {
+    for (let i = 0; i < Count; i++) {
+      particles.push(new Particle());
+    }
+  }
+ 
+  // 绘制粒子之间的连线
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+ 
+        if (distance < max) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = Color;
+          ctx.lineWidth = 0.2 * (1 - distance / max);
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
+    }
+  }
+ 
+  // 动画循环
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+ 
+    for (const particle of particles) {
+      particle.update();
+      particle.draw();
+    }
+ 
+    drawConnections();
+ 
+    requestAnimationFrame(animate);
+  }
+ 
+  // 初始化粒子数组并启动动画
+  createParticles();
+  animate();
+
+    //初始数据
+    function Article(tittle,first,id,href){
+        this.tittle = tittle
+        this.first = first
+        this.id = id
+        this.href = href
+    }
+    const data = [new Article("如何区分INTP和INTJ?","intp的温柔藏在i和p中，intp的主导性格是nt强势；若次级性格是内向的sf随和，抗压性格是感知的sf随和，这类intp遇事不温柔，遇人温柔、是那种带目的性的温柔。","INTPintp区别情感","./article1.html"),
+    new Article("为什么intj总给人感觉大智若愚?","有INTJ的小伙伴分享如下：","INTJintj大智若愚表现","./article2.html"),
+    new Article("ENTP做过哪些特别的事？","a.我特别热衷于信任自己的第六感，对于时间的第六感，再准确一点是对于下课时间的第六感！因此我在一个早上有四节课的小学上学时，每当第三节下课铃声一响，我就会以最快的速度收拾书包，撂上肩膀，冲出教室，突破校门，直奔家中。（自带背景bgm：我的规律就是规律！）在这个过程中，我享受着身边同学（嫉妒）迷惑的目光，而我觉得很骄傲，因为我在想他们收拾书包的速度都根本比不上我。。。而我妈那时候是我的班主任。。。那会经常因为这个第六感，没少挨打！","entpENTP自信特点","./article3.html"),
+    new Article("[MBTI] J 比 P 更好么 ?","首先，我们来看看J型人群。他们通常喜欢有计划、有条理的生活方式。他们善于组织和安排时间，并且比较注重完成任务。相对而言，J型人更偏向于控制自己的环境，并且更容易接受规则和制度。","J型P型j型p型区别","./article4.html"),
+    new Article("ISFJ和INTJ日常的相处方式?","a INJ兴奋时表现得很有攻击性，生气时表现得很平静，平静时表现得很愤怒，警觉和倾听时表现得很疏离。","isfjISFJintjINTJ相处方式","./article5.html"),
+    new Article("MBTI各类型靠什么治愈自己？","以下，我们将详细解析MBTI中的16种性格类型，以及每种类型可能适合的情绪调适方法。在此之前，我们需要强调的是，这些只是建议，并不意味着每个人都必须严格按照其性格类型来进行情绪调适。你可以尝试多种方法，找出最适合自己的方式。","intjinfpestjesfpINTJINFPESTJESFP调节情绪情感心态","./article6.html"),
+    new Article("内耗中的infj怎么调整心态？","首先分清自己是哪种内耗","infjINFJ内耗心态情绪情感调节","./article7.html"),
+    new Article("intj什么时候会觉得委屈?","1、自己在乎的人不够了解自己，指着自己的痛处骂，或者被揭伤疤嘲笑，这不仅会让intj感到委屈甚至觉得对方行为可笑，认为自己是sb白白浪费时间精力;","intjINTJ情绪情感","./article8.html"),
+    new Article("什么样的16型人格会成为一名出色的演员？","虽然国内娱乐圈很少有人进行这种性格测试，但我们可以根据他们在节目、综艺节目和采访中的表现来推断和匹配他们最适合的性格类型。随着时间的推移，每个人的成长都可能发生变化。","INTJintjINTPintpENTJentpINFJinfjINFPinfpENFJenfj职业mbtiMBTI","./article9.html"),
+    new Article("16型人格谁最好骗？","超级好骗 ESFP / ISFP/ ESFJ     ESFP 整天满脑子都是吃喝玩乐，像是长不大的宝宝，心智很不成熟。他们对未来没有什么打算，嗨一天是一天。由于对人生缺乏计划性，很容易贪图眼下的快乐而遭人利用，自己可能还浑然不知。","ESFPesfpISFPisfpESFJesfjINFJinfjENFPenfpENFJenfj","./article10.html")]
+
+    const tittle = [`${data[0].tittle}`,`${data[1].tittle}`,`${data[2].tittle}`,`${data[3].tittle}`,`${data[4].tittle}`,`${data[5].tittle}`,`${data[6].tittle}`,`${data[7].tittle}`,`${data[8].tittle}`,`${data[9].tittle}`]
+    const id = [`${data[0].id}`,`${data[1].id}`,`${data[2].id}`,`${data[3].id}`,`${data[4].id}`,`${data[5].id}`,`${data[6].id}`,`${data[7].id}`,`${data[8].id}`,`${data[9].id}`]
+    const first = [`${data[0].first}`,`${data[1].first}`,`${data[2].first}`,`${data[3].first}`,`${data[4].first}`,`${data[5].first}`,`${data[6].first}`,`${data[7].first}`,`${data[8].first}`,`${data[9].first}`]
+    console.log(tittle)
+    const main = document.getElementById("main")
+    let num = 0
+    //背景渐显
+    let timer = setInterval(() => {
+        num++
+        main.style.opacity = num/100
+        if (main.style.opacity == 1){
+            clearInterval(timer)
+        }
+    }, 10);
+    //文字渐显
+    let str = "人格多彩  各不相同"
+    let words = str.split("")
+    let word = document.getElementsByClassName("word")[0]
+    
+    function write() {
+        if (words.length > 0) {
+            let span = document.createElement("span")
+
+            let dele = words.shift()
+            let opc = 0
+            span.innerHTML = dele
+            word.appendChild(span)
+            let fade = setInterval(function() {
+                opc++
+                span.style.opacity = opc / 10
+                span.style.color = "pink"
+                span.style.textShadow = "0 0 1rem rgba(255,224,141,.71), 0 0 1rem rgba(255,193,139,.71)"
+                span.style.filter = "blur(" + (10 / opc - 1) + "px)"
+                if (opc >= 10) {
+                    clearInterval(fade)
+                    span.style.color = "pink"
+                }
+            }, 100)
+        }
+        else{
+            clearInterval(timer1)
+            const timer2 = setInterval(write1, 100)
+        }
+
+    }
+    let str1 = "在这里找到你人生的攻略"
+    let words1 = str1.split("")
+    let word1 = document.getElementsByClassName("word")[1]
+    
+    function write1() {
+        if (words1.length > 0) {
+            let span = document.createElement("span")
+            let dele = words1.shift()
+            let opc = 0
+            span.innerHTML = dele
+            word1.appendChild(span)
+            let fade = setInterval(function() {
+                opc++
+                span.style.opacity = opc / 10
+                span.style.color = "pink"
+                span.style.textShadow = "0 0 1rem rgba(255,224,141,.71), 0 0 1rem rgba(255,193,139,.71)"
+                span.style.filter = "blur(" + (10 / opc - 1) + "px)"
+                if (opc >= 10) {
+                    clearInterval(fade)
+                    span.style.color = "pink"
+                }
+            }, 100)
+        }
+        else{//文字渐隐
+            const letters = document.querySelectorAll("span")
+            const timer3 = setTimeout(() => {
+                for(let i=0;i<letters.length;i++){
+                    letters[i].classList.add('active')
+                }
+            }, 2000)
+            
+        }
+
+    }
+    const timer1 = setInterval(write, 100)
+    const container = document.querySelector("#container")
+    let listGroup = document.querySelector('.list-group')
+    //搜索功能
+    function more(data,size){
+        let newdata = [];
+        while(data.length){
+            newdata.push(data.splice(0,size));
+        }
+        return newdata;
+    }
+    const input = document.querySelector("#input")
+    const button = document.querySelector("#button")
+    let content
+    function fsearch(){
+        let i
+        let content = input.value
+        let find = content.split("")
+        let regO = new RegExp('' + content + '')
+        
+        //检索第一段
+        for(i = 0;i + 1 < find.length; i++){
+            let j
+            let reg = new RegExp('' + find[i] + ''+ find[i+1]+'')
+            for(j = 0;j<first.length;j++){
+                if (reg.test(first[j])){
+                    data[j].class = 6
+                }
+            }
+        }
+        for(i = 0;i < first.length; i++){
+        if(regO.test(first[i])){
+            data[i].class = 3
+        }}
+        //检索id
+        for(i = 0;i + 1 < find.length; i++){
+            let j
+            let reg = new RegExp('' + find[i] + ''+ find[i+1]+'')
+            for(j = 0;j<id.length;j++){
+                if (reg.test(id[j])){
+                    data[j].class = 5
+                }
+            }
+        }
+        for(i = 0;i < id.length; i++){
+        if(regO.test(id[i])){
+            data[i].class = 2
+        }}
+
+        //检索标题
+        for(i = 0;i + 1 < find.length; i++){
+            let j
+            let reg = new RegExp('' + find[i] + ''+ find[i+1]+'')
+            for(j = 0;j<tittle.length;j++){
+                if (reg.test(tittle[j])){
+                    data[j].class = 4
+                }
+            }
+        }
+        for(i = 0;i < tittle.length; i++){
+        if(regO.test(tittle[i])){
+            data[i].class = 1
+        }}
+        //重整数组
+        let newData=[]
+        for(i = 1;i<=6;i++){
+            let j = 0;
+            for(;j<data.length;j++){
+                if(data[j].class== i){
+                newData.push(data[j])
+            }
+            }
+        }
+        let dataList = more(newData,4)
+        listGroup.remove()
+        listGroup = document.createElement('div');
+        listGroup.className = "list-group";
+        container.appendChild(listGroup)
+        //元素显示
+        for(i=0;i<4;i++)  {
+            if(i<dataList[0].length){
+                let peoBox = document.createElement('a')
+                listGroup.appendChild(peoBox)
+                let img = document.createElement('img')
+                peoBox.appendChild(img)
+                let content = document.createElement("div")
+                peoBox.appendChild(content)
+                let name = document.createElement('h3')
+                content.appendChild(name)
+                let first = document.createElement('p')
+                content.appendChild(first)
+                peoBox.className = `peo_box peo_box${i+1}`
+                peoBox.href = dataList[0][i].href
+                peoBox.target = "_blank"
+                
+                img.className = "picture"
+                img.src = "./bgi.png"
+                img.alt = "conf"
+                
+                content.className = "content"
+                
+                name.className = "name"
+                name.innerHTML = dataList[0][i].tittle
+                
+                first.innerHTML = dataList[0][i].first
+            }
+        }
+        //上下页
+    function xianshi(dataList){
+        let i
+        for(i=0;i<4;i++)  {
+            if(i<dataList.length){
+                let peoBox = document.createElement('a')
+                listGroup.appendChild(peoBox)
+                let img = document.createElement('img')
+                peoBox.appendChild(img)
+                let content = document.createElement("div")
+                peoBox.appendChild(content)
+                let name = document.createElement('h3')
+                content.appendChild(name)
+                let first = document.createElement('p')
+                content.appendChild(first)
+                peoBox.className = `peo_box peo_box${i+1}`
+                peoBox.href = dataList[i].href
+                peoBox.target = "_blank"
+                
+                img.className = "picture"
+                img.src = "./bgi.png"
+                img.alt = "conf"
+                
+                content.className = "content"
+                
+                name.className = "name"
+                name.innerHTML = dataList[i].tittle
+                
+                first.innerHTML = dataList[i].first
+            }
+        }
+    }
+    let k = 0
+    let prev = document.getElementById('pre');
+    if(k == 0){
+            prev.className = "buttonpn disabled";
+        }
+    prev.onclick = function () {
+        if(k > 0) {
+            listGroup.remove()
+            listGroup = document.createElement('div')
+            listGroup.className = "list-group"
+            container.appendChild(listGroup)
+            k--
+            xianshi(dataList[k])
+            //pagination.textContent = `共4页，当前${i+1}页`
+            delete next.className
+            next.className = "buttonpn"
+        }
+        if(k == 0){
+            prev.className = "buttonpn disabled";
+        }
+    }
+    let next = document.getElementById('next');
+    delete next.className
+            next.className = "buttonpn"
+    if(k == dataList.length-1){
+            next.className = "buttonpn disabled"
+            
+        }
+    next.onclick = function () {
+        if(k < dataList.length-1) {
+            listGroup.remove()
+            listGroup = document.createElement('div')
+            listGroup.className = "list-group"
+            container.appendChild(listGroup)
+            k++
+            xianshi(dataList[k])
+            //pagination.textContent = `共4页，当前${i+1}页`
+            delete prev.className
+            prev.className = "buttonpn"
+        }
+        if(k == dataList.length-1){
+            next.className = "buttonpn disabled"
+            
+        }
+    }
+        //清除等级
+        for(i = 0;i<data.length;i++){
+            data[i].class = 7
+        }
+    let inp = document.querySelector("input")
+    inp.value = ''
+    }
+    fsearch()
+    button.addEventListener("click",function fsearch(){
+        let i
+        let content = input.value
+        let find = content.split("")
+        let regO = new RegExp('' + content + '')
+        
+        //检索第一段
+        for(i = 0;i + 1 < find.length; i++){
+            let j
+            let reg = new RegExp('' + find[i] + ''+ find[i+1]+'')
+            for(j = 0;j<first.length;j++){
+                if (reg.test(first[j])){
+                    data[j].class = 6
+                }
+            }
+        }
+        for(i = 0;i < first.length; i++){
+        if(regO.test(first[i])){
+            data[i].class = 3
+        }}
+        //检索id
+        for(i = 0;i + 1 < find.length; i++){
+            let j
+            let reg = new RegExp('' + find[i] + ''+ find[i+1]+'')
+            for(j = 0;j<id.length;j++){
+                if (reg.test(id[j])){
+                    data[j].class = 5
+                }
+            }
+        }
+        for(i = 0;i < id.length; i++){
+        if(regO.test(id[i])){
+            data[i].class = 2
+        }}
+
+        //检索标题
+        for(i = 0;i + 1 < find.length; i++){
+            let j
+            let reg = new RegExp('' + find[i] + ''+ find[i+1]+'')
+            for(j = 0;j<tittle.length;j++){
+                if (reg.test(tittle[j])){
+                    data[j].class = 4
+                }
+            }
+        }
+        for(i = 0;i < tittle.length; i++){
+        if(regO.test(tittle[i])){
+            data[i].class = 1
+        }}
+        //重整数组
+        let newData=[]
+        for(i = 1;i<=6;i++){
+            let j = 0;
+            for(;j<data.length;j++){
+                if(data[j].class== i){
+                newData.push(data[j])
+            }
+            }
+        }
+        let dataList = more(newData,4)
+        listGroup.remove()
+        listGroup = document.createElement('div');
+        listGroup.className = "list-group";
+        container.appendChild(listGroup)
+        //元素显示
+        for(i=0;i<4;i++)  {
+            if(i<dataList[0].length){
+                let peoBox = document.createElement('a')
+                listGroup.appendChild(peoBox)
+                let img = document.createElement('img')
+                peoBox.appendChild(img)
+                let content = document.createElement("div")
+                peoBox.appendChild(content)
+                let name = document.createElement('h3')
+                content.appendChild(name)
+                let first = document.createElement('p')
+                content.appendChild(first)
+                peoBox.className = `peo_box peo_box${i+1}`
+                peoBox.href = dataList[0][i].href
+                peoBox.target = "_blank"
+                
+                img.className = "picture"
+                img.src = "./bgi.png"
+                img.alt = "conf"
+                
+                content.className = "content"
+                
+                name.className = "name"
+                name.innerHTML = dataList[0][i].tittle
+                
+                first.innerHTML = dataList[0][i].first
+            }
+        }
+        //上下页
+    function xianshi(dataList){
+        let i
+        for(i=0;i<4;i++)  {
+            if(i<dataList.length){
+                let peoBox = document.createElement('a')
+                listGroup.appendChild(peoBox)
+                let img = document.createElement('img')
+                peoBox.appendChild(img)
+                let content = document.createElement("div")
+                peoBox.appendChild(content)
+                let name = document.createElement('h3')
+                content.appendChild(name)
+                let first = document.createElement('p')
+                content.appendChild(first)
+                peoBox.className = `peo_box peo_box${i+1}`
+                peoBox.href = dataList[i].href
+                peoBox.target = "_blank"
+                
+                img.className = "picture"
+                img.src = "./bgi.png"
+                img.alt = "conf"
+                
+                content.className = "content"
+                
+                name.className = "name"
+                name.innerHTML = dataList[i].tittle
+                
+                first.innerHTML = dataList[i].first
+            }
+        }
+    }
+    let k = 0
+    let prev = document.getElementById('pre');
+    if(k == 0){
+            prev.className = "buttonpn disabled";
+        }
+    prev.onclick = function () {
+        if(k > 0) {
+            listGroup.remove()
+            listGroup = document.createElement('div')
+            listGroup.className = "list-group"
+            container.appendChild(listGroup)
+            k--
+            xianshi(dataList[k])
+            //pagination.textContent = `共4页，当前${i+1}页`
+            delete next.className
+            next.className = "buttonpn"
+        }
+        if(k == 0){
+            prev.className = "buttonpn disabled";
+        }
+    }
+    let next = document.getElementById('next');
+    delete next.className
+            next.className = "buttonpn"
+    if(k == dataList.length-1){
+            next.className = "buttonpn disabled"
+            
+        }
+    next.onclick = function () {
+        if(k < dataList.length-1) {
+            listGroup.remove()
+            listGroup = document.createElement('div')
+            listGroup.className = "list-group"
+            container.appendChild(listGroup)
+            k++
+            xianshi(dataList[k])
+            //pagination.textContent = `共4页，当前${i+1}页`
+            delete prev.className
+            prev.className = "buttonpn"
+        }
+        if(k == dataList.length-1){
+            next.className = "buttonpn disabled"
+            
+        }
+    }
+        //清除等级
+        for(i = 0;i<data.length;i++){
+            data[i].class = 7
+        }
+    let inp = document.querySelector("input")
+    inp.value = ''
+    })
+    var li = document.querySelector("#li");
+    var roll = document.querySelector('#roll');
+    li.addEventListener('mouseover',function fm() {
+      li.style.backgroundColor = "#606060";
+      li.style.opacity = "0.5";
+    })
+    li.addEventListener('mouseleave',function fe() {
+      li.removeAttribute("style");
+      li.style.opacity = "1";
+    })
+    li.addEventListener('click',function fn() {
+        if(roll.style.transform == 'scaleY(1)'){
+        roll.style.transform = 'scaleY(0)'
+      }
+      else {
+        roll.style.transform = 'scaleY(1)'
+      }
+    })
+</script>
+</html>

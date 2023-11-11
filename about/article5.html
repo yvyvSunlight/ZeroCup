@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../main/Vector.svg"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: BlackSongREgualar;
+        }
+        body{
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        canvas {
+            background-size: cover;
+            position: absolute;
+            background-image: url("./bgbg.png");
+        }
+        #main{
+            position: absolute;
+            width: 70%;
+            height: 100vh;
+            border-radius: 1%;
+
+            box-sizing: border-box;
+        }
+        #tittle{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        h1{
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+        }
+        #tittle h5{
+            color: rgb(241, 241, 241);
+            display: flex;
+            justify-content: center;
+        }
+        #text p {
+            color: #ffffff;
+            width: 90%;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-size: 1.1em;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        button {
+            position: relative;
+            font-size: 32px;
+            font-weight: 400;
+            background-color: #ffffff;
+            padding: 12px 20px;
+            border: none;
+            color: #000000;
+            border-radius: 10px;
+            width: 150px;
+            margin: 0 40%;
+        }
+        a{
+            text-decoration: none;
+            color: purple;
+        }
+        @font-face {
+    font-family: BlackSongRegualar;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
+}
+
+@font-face {
+    font-family: BlackSongBold;
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongBold.otf);
+}
+
+    </style>
+    <title>ISFJ和INTJ日常的相处方式?</title>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <div id="main">
+        <div id="tittle">
+            <h1>ISFJ和INTJ日常的相处方式?</h1>
+            <h5>声明——转自知乎，仅用于展示网页效果</h5>
+        </div>
+        <div id="text">
+            <p>a INJ兴奋时表现得很有攻击性，生气时表现得很平静，平静时表现得很愤怒，警觉和倾听时表现得很疏离。
+            </p>
+            <p>
+                b．当 INTJ 做了别人认为很好的事情时， INTJ 会觉得很假；反之，当 INJ 做了你认为很好、很有帮助的事情时，别人会被 INTJ 的麻木不仁所震惊。
+            </p>
+            <p>
+                c.INJ更自然地从因果关系的角度看世界，而不是从对错或好坏的角度看。某一部分人总是会把这解释为"斤斤计较"。
+            </p>
+            <p>
+                d．每个人都告诉 INTJ 很聪明，但 INTJ 不觉得自己聪明。当 INJ 真的说了一些你认为聪明和微妙的东西时，人们会疑惑地看着你，好像你一定是糊涂了，而且完全不能理解 INTJ 的观点。
+            </p>
+            <p>e .INTJ对情感线索很敏感，但对社交线索完全无动于衷。这可以转化为 INTJ 准确地捕捉到人们的感受，然后做出恰恰是错误的反应，并产生与你的意图完全相反的效果。（对不起。)</p>
+            <p>f .INTJ有一个有序的、有纪律的头脑，可以为任何事情制定策略，但 INJ 无法掌握日常生活的任务，经常忘记做诸如吃饭、睡觉、买衣服等事情。</p>
+            <p>g .INTJ认为其他人都像你一样深入思考过所有事情，并据此行事，结果可想而知，这是很悲惨的。</p>
+
+        </div>
+        <button id="button">
+            <a href="javascript:window.opener=null;window.open('','_self');window.close();">BACK</a>
+        </button>
+    </div>
+</body>
+<script>
+    const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d");
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+ 
+  canvas.width = width;
+  canvas.height = height;
+ 
+  const particles = [];
+  const connections = [];
+  const Count = 20;  
+  const Speed = 0.25;     
+  const Size = 20;      
+  const max = 300;     
+  const Color = "#fff"; 
+ 
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.color = "#fff";
+      this.angle = Math.random() * 360;
+      this.speed = Math.random() * (Speed+0.25)/2;
+      this.opacity = Math.random() * 0.5 ;
+    }
+ 
+    update() {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+ 
+      // 如果粒子超出画布范围，则重新随机设置位置
+      if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+      }
+    }
+ 
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, Size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+      ctx.fill();
+    }
+  }
+ 
+  // 创建粒子数组
+  function createParticles() {
+    for (let i = 0; i < Count; i++) {
+      particles.push(new Particle());
+    }
+  }
+ 
+  // 绘制粒子之间的连线
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+ 
+        if (distance < max) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = Color;
+          ctx.lineWidth = 0.2 * (1 - distance / max);
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
+    }
+  }
+ 
+  // 动画循环
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+ 
+    for (const particle of particles) {
+      particle.update();
+      particle.draw();
+    }
+ 
+    drawConnections();
+ 
+    requestAnimationFrame(animate);
+  }
+ 
+  // 初始化粒子数组并启动动画
+  createParticles();
+  animate();
+</script>
+</html>
