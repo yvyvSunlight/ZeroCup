@@ -23,8 +23,7 @@
 │   │   │   |   ├──ChillDuanHeiSong_CompactMedium.otf
 │   │   |   |   └── ...
 │   │   │   ├── 寒蝉端黑宋Pro
-│   │   │   |   ├──ChillDuanHeiSongPro_Regular.otf
-│   │   |   |   └── ChillDuanHeiSongProJP_Regular.otf
+│   │   │   |   └── ChillDuanHeiSongProJP_Regular.otf 
 │   │   │   └── 帮助说明.txt
 │   ├── main.html //主页入口
 │   ├── content.css //主页样式文件
