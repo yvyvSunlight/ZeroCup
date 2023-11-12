@@ -79,6 +79,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: BlackSongRegualar;
+    font-size: 16px;
 }
 
 #logo #blue {
@@ -156,6 +158,45 @@ body{
 .header ul li a:hover {
     transform: translate(0, -8%);
 }
+.back{
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    height: 30px;
+    width: 110px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 18px;
+    line-height: 30px;
+    background-image: linear-gradient(to right,#03a9f4,#f441a5,#ffeb3b,#09a8f4);
+    border-radius: 15px;
+    background-size: 400%;
+}
+.back:hover{
+    animation: sun 8s infinite;
+}
+.back::before{
+    content: '';
+    position: absolute;
+    top: -1.5px;
+    bottom: -1.5px;
+    left: -1.5px;
+    right: -1.5px;
+    border-radius: 15px;
+    background-image: linear-gradient(to right,#03a9f4,#f441a5,#ffeb3b,#09a8f4);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(20px);
+
+}
+@keyframes sun {
+    100%{
+        background-position: -400% 0;
+    }
+}
 
 
 /* 星空 */
@@ -227,9 +268,9 @@ body{
 /* 题目数量输入 */
 #question-sum-box{
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 15%;
-    bottom: 20%;
+    bottom: 15%;
     width: 70%;
     /* display: flex;
     justify-content: space-around; */
@@ -346,6 +387,10 @@ input{
     }
 }
 
+li a{
+    font-family: BlackSongRegualar;
+    font-size: 16px;
+}
 .qfcontainer {
     display: flex;
     justify-content: center;

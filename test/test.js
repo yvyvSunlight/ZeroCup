@@ -462,21 +462,26 @@ var fullmod=document.getElementById("fullmod");
 var self_define_mod=document.getElementById("self-define-mod");
 var dtyin=document.getElementById("dtyin");
 var start=document.getElementById("start");
-var qidong=document.getElementById("qidong")
+var qidong=document.getElementById("qidong");
+var button = document.querySelector(".back");
+
 
 easymod.addEventListener("click",function(){
     requiredQ=12;
     start_one();
+    button.style.display = "block";
 })
 fullmod.addEventListener("click",()=>{
     requiredQ=48;
     start_one();
+    button.style.display = "block";
 })
 self_define_mod.addEventListener("click",function(){
     requiredQ=parseInt((parseInt(dtyin.value)-1)/4)*4+4;
     if(requiredQ>0&&requiredQ<=48)
         start_one();
-})
+        button.style.display = "block";
+    })
 
 var cubu=document.getElementById("cubu");
 
