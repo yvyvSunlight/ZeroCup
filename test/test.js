@@ -463,7 +463,7 @@ var self_define_mod=document.getElementById("self-define-mod");
 var dtyin=document.getElementById("dtyin");
 var start=document.getElementById("start");
 var qidong=document.getElementById("qidong");
-var button = document.querySelector(".back");
+// var button = document.querySelector(".back");
 
 
 easymod.addEventListener("click",function(){
@@ -510,6 +510,7 @@ function QIDONG(){
         test();
     }, 2000);
 }
+qidong.addEventListener("click",QIDONG);
 
 
 
