@@ -42,11 +42,16 @@
 }
 
 h2,h3{
-    font-family: XX;
+    font-family: HY;
 }
 h1{
     font-family: HY;
     /* font-size: ; */
+}
+.discription{
+    font-size: 17px;
+    font-family: BlackSongBold;
+    margin-right: 7vw;
 }
 @font-face {
     font-family: HY;
@@ -56,4 +61,12 @@ h1{
 @font-face {
     font-family: XX;
     src: url(./font/Slidexiaxing-Regular.ttf);
+}
+@font-face {
+    font-family: BlackSongRegualar;
+    src: url(./blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
+}
+@font-face {
+    font-family: BlackSongBold;
+    src: url(./blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongBold.otf);
 }

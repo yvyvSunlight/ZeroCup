@@ -469,18 +469,18 @@ var button = document.querySelector(".back");
 easymod.addEventListener("click",function(){
     requiredQ=12;
     start_one();
-    button.style.display = "block";
+    // button.style.display = "block";
 })
 fullmod.addEventListener("click",()=>{
     requiredQ=48;
     start_one();
-    button.style.display = "block";
+    // button.style.display = "block";
 })
 self_define_mod.addEventListener("click",function(){
     requiredQ=parseInt((parseInt(dtyin.value)-1)/4)*4+4;
     if(requiredQ>0&&requiredQ<=48)
         start_one();
-        button.style.display = "block";
+        // button.style.display = "block";
     })
 
 var cubu=document.getElementById("cubu");
@@ -510,7 +510,7 @@ function QIDONG(){
         test();
     }, 2000);
 }
-qidong.addEventListener("click",QIDONG);
+
 
 
 
