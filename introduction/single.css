@@ -50,7 +50,8 @@ h1{
 }
 .discription{
     font-size: 17px;
-    font-family: BlackSongBold;
+    font-family: BlackSongRegualar;
+    line-height: 20px;
     margin-right: 7vw;
 }
 @font-face {
@@ -64,9 +65,9 @@ h1{
 }
 @font-face {
     font-family: BlackSongRegualar;
-    src: url(./blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
 }
 @font-face {
     font-family: BlackSongBold;
-    src: url(./blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongBold.otf);
+    src: url(../main/blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongBold.otf);
 }

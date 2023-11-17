@@ -483,6 +483,15 @@ self_define_mod.addEventListener("click",function(){
         // button.style.display = "block";
     })
 
+dtyin.addEventListener("keypress",function(e){
+    if(e.key=="Enter")
+    {
+        requiredQ=parseInt((parseInt(dtyin.value)-1)/4)*4+4;
+        if(requiredQ>0&&requiredQ<=48)
+            start_one();
+    }
+})
+
 var cubu=document.getElementById("cubu");
 
 function start_one()
