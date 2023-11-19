@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "poppins", sans-serif;
-    font-family: BlackSongREgualar;
+    font-family: BlackSongRegualar;
 }
 
 body {
@@ -17,12 +17,12 @@ body {
 
 @font-face {
     font-family: BlackSongRegualar;
-    src: url(./blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宄1�7/ChillDuanHeiSongRegular.otf);
+    src: url(./blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongRegular.otf);
 }
 
 @font-face {
     font-family: BlackSongBold;
-    src: url(./blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宄1�7/ChillDuanHeiSongBold.otf);
+    src: url(./blackSong/寒蝉端黑宋_100font.com/寒蝉端黑宋/ChillDuanHeiSongBold.otf);
 }
 
 h2 {
